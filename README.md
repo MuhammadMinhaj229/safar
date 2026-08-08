@@ -22,3 +22,4 @@ Instead of making users type out long paragraphs on WhatsApp, the built-in Smart
 
 ---
 *Designed & Developed for seamless Gulf assistance.*
+"# safar" 
