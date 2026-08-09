@@ -1,8 +1,8 @@
-# SAFAR ✈️🏠
+# SAFAR N MANZIL ✈️🏠
 
 **Premium Gulf Assistance Service Landing Page**
 
-SAFAR is a world-class landing page designed to solve real-world problems for people traveling between India and the Gulf countries. It provides a simple, frictionless entry point for users to request assistance with packing, travel logistics, visas, and family support back home.
+SAFAR N MANZIL is a world-class landing page designed to solve real-world problems for people traveling between India and the Gulf countries. It provides a simple, frictionless entry point for users to request assistance with packing, travel logistics, visas, and family support back home.
 
 ## 🚀 Features
 
@@ -22,4 +22,3 @@ Instead of making users type out long paragraphs on WhatsApp, the built-in Smart
 
 ---
 *Designed & Developed for seamless Gulf assistance.*
-"# safar" 

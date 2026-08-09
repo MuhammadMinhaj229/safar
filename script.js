@@ -89,8 +89,8 @@ sendWhatsappBtn.addEventListener('click', () => {
     const selectedType = document.querySelector('input[name="user_type"]:checked').value;
     const isGoing = selectedType === 'going';
     const introText = isGoing 
-        ? "Hi SAFAR! I am currently in India and preparing to go to the Gulf." 
-        : "Hi SAFAR! I am currently living in the Gulf and need help for my family in India.";
+        ? "Hi SAFAR N MANZIL! I am currently in India and preparing to go to the Gulf." 
+        : "Hi SAFAR N MANZIL! I am currently living in the Gulf and need help for my family in India.";
 
     // Get Selected Needs
     const activeContainer = isGoing ? needsGoing : needsLiving;
