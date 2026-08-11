@@ -125,6 +125,8 @@ body {
 }
 
 .logo-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4em;
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
@@ -133,6 +135,7 @@ body {
 }
 
 .logo-accent {
+    font-family: 'Nunito', sans-serif;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -150,6 +153,7 @@ body {
 }
 
 .logo-accent-dark {
+    font-family: 'Nunito', sans-serif;
     display: inline-flex;
     align-items: center;
     justify-content: center;
