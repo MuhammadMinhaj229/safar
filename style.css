@@ -698,44 +698,69 @@ body {
 
 /* WhatsApp Channel Section */
 .wa-channel-card {
-    background: linear-gradient(135deg, #128C7E, #25D366);
+    background: linear-gradient(135deg, #128C7E 0%, #25D366 100%);
     border-radius: 24px;
-    padding: 4rem 5rem;
+    padding: 3.5rem 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 2.5rem;
     box-shadow: 0 20px 40px rgba(37, 211, 102, 0.2);
     margin-bottom: 2rem;
     color: white;
+    position: relative;
+    overflow: hidden;
 }
 .wa-channel-content {
     display: flex;
     align-items: center;
     gap: 2rem;
+    flex: 1;
 }
 .wa-icon {
-    width: 80px; height: 80px;
+    width: 76px;
+    height: 76px;
+    min-width: 76px;
     background: rgba(255, 255, 255, 0.2);
     border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    flex-shrink: 0;
 }
-.wa-channel-content h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem; }
-.wa-channel-content p { font-size: 1.1rem; opacity: 0.9; max-width: 500px; line-height: 1.5; }
+.wa-channel-text h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    line-height: 1.25;
+}
+.wa-channel-text p {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    opacity: 0.92;
+    max-width: 520px;
+    line-height: 1.55;
+}
 .wa-btn {
     background: white;
     color: #128C7E;
-    padding: 1.2rem 2.5rem;
+    padding: 1.1rem 2.5rem;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 800;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     transition: var(--transition);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 .wa-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.18);
+    background: #F7FAFC;
 }
 
 /* Footer & Smart Form */
@@ -925,7 +950,51 @@ body {
     .process-card { padding: 2.5rem 1.5rem; }
     .feature-box { padding: 1.5rem; }
     .trust-card { padding: 2.5rem 1.5rem; }
-    .wa-channel-card { flex-direction: column; text-align: center; padding: 2.5rem 1.5rem; gap: 1.5rem; }
+    
+    /* WhatsApp Channel Mobile Responsiveness */
+    .wa-channel-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 2.2rem 1.4rem;
+        border-radius: 20px;
+        gap: 1.5rem;
+    }
+    .wa-channel-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+        width: 100%;
+    }
+    .wa-icon {
+        width: 64px;
+        height: 64px;
+        min-width: 64px;
+        margin: 0 auto;
+    }
+    .wa-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+    .wa-channel-text {
+        width: 100%;
+    }
+    .wa-channel-text h2 {
+        font-size: clamp(1.35rem, 5.5vw, 1.75rem);
+    }
+    .wa-channel-text p {
+        font-size: 0.95rem;
+        line-height: 1.5;
+        max-width: 100%;
+    }
+    .wa-btn {
+        width: 100%;
+        max-width: 100%;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        text-align: center;
+        box-sizing: border-box;
+    }
+    
     .smart-form-container { padding: 2rem 1.2rem; margin-bottom: 4rem; }
     
     /* Needs Pills (Wrap closely) */
