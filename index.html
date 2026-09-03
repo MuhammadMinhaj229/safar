@@ -517,9 +517,8 @@
     <script src="script.js"></script>
     <script>
         // ── CRM Lead Capture ──────────────────────────────────────────
-        // Replace this URL with your actual Vercel CRM deployment URL after deployment.
-        // e.g. https://safar-crm.vercel.app/api/public/lead
-        const CRM_API_URL = 'https://your-crm-vercel-url.vercel.app/api/public/lead';
+        // Post to the live CRM
+        const CRM_API_URL = 'https://safar-crm-theta.vercel.app/api/public/lead';
 
         document.getElementById('submit-lead-btn').addEventListener('click', async function() {
             const name = document.getElementById('lead-name').value.trim();
