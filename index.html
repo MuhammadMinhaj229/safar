@@ -9,6 +9,109 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ---- CRM Lead Form Additions ---- */
+        .lead-capture-form {
+            background: linear-gradient(135deg, #FFF7F3 0%, #FFF0E8 100%);
+            border: 1.5px solid rgba(255,155,106,0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .lead-capture-form h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: #2D3748;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .lead-fields-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        @media (max-width: 600px) {
+            .lead-fields-row { grid-template-columns: 1fr; }
+        }
+        .lead-field label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.4rem;
+        }
+        .lead-field input {
+            width: 100%;
+            padding: 0.65rem 0.9rem;
+            border: 1.5px solid rgba(255,155,106,0.3);
+            border-radius: 10px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.95rem;
+            color: #2D3748;
+            background: #fff;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            box-sizing: border-box;
+        }
+        .lead-field input:focus {
+            outline: none;
+            border-color: #FF9B6A;
+            box-shadow: 0 0 0 3px rgba(255,155,106,0.15);
+        }
+        .lead-field input::placeholder {
+            color: #A0AEC0;
+        }
+        .crm-status-msg {
+            display: none;
+            margin-top: 0.8rem;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+        }
+        .crm-status-msg.success {
+            background: #C6F6D5;
+            color: #276749;
+        }
+        .crm-status-msg.error {
+            background: #FED7D7;
+            color: #9B2C2C;
+        }
+        .btn-solid.btn-loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        /* Divider between CRM form and WhatsApp builder */
+        .form-section-divider {
+            text-align: center;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+        .form-section-divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255,155,106,0.2);
+        }
+        .form-section-divider span {
+            position: relative;
+            background: white;
+            padding: 0 1rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: #A0AEC0;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+    </style>
 </head>
 <body>
     
@@ -27,7 +130,7 @@
                     <a href="#how-it-works">How it Works</a>
                     <a href="#safar-go">Going to Gulf</a>
                     <a href="#safar-home">Living in Gulf</a>
-                    <a href="#faq">FAQ</a>
+                    <a href="#contact">Contact Us</a>
                 </div>
                 <div class="search-btn">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF914D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -46,7 +149,7 @@
                     
                     <div class="cta-area">
                         <div class="btn-highlight"></div>
-                        <a href="https://wa.me/917207071874?text=Hi%20SAFAR%20N%20MANZIL!%20I%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" class="cta-pill">Contact <span class="brand-name">SAFAR <span class="brand-n-badge">N</span> MANZIL</span></a>
+                        <a href="#contact" class="cta-pill">Get Started — <span class="brand-name">SAFAR <span class="brand-n-badge">N</span> MANZIL</span></a>
                     </div>
                     
                     <div class="social-links delay-1 fade-in-up">
@@ -56,8 +159,8 @@
                         <a href="#" class="social-icon" aria-label="Twitter">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
                         </a>
-                        <a href="#" class="social-icon" aria-label="Dribbble">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"></circle><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"></path></svg>
+                        <a href="https://whatsapp.com/channel/0029VbD5C7AKrWQwktRWrP2J" class="social-icon" aria-label="WhatsApp Channel">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
                         </a>
                         <a href="#" class="social-icon" aria-label="YouTube">
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"></polygon></svg>
@@ -166,7 +269,7 @@
                             <li><strong>Household Help:</strong> We coordinate verified local services for your home.</li>
                             <li><strong>Send Things Home:</strong> Need to send items locally to your family? We manage it.</li>
                         </ul>
-                        <a href="https://wa.me/917207071874?text=Hi%20SAFAR%20N%20MANZIL!%20I%20am%20currently%20living%20in%20the%20Gulf%20and%20need%20assistance%20for%20my%20family%20back%20home." target="_blank" class="btn-solid mt-4">Ask For Help Now</a>
+                        <a href="#contact" class="btn-solid mt-4">Ask For Help Now</a>
                     </div>
                     <div class="image-content fade-in-up delay-2">
                         <div class="trust-card">
@@ -233,7 +336,7 @@
                     <div class="faq-item">
                         <button class="faq-question">How do I ask for help? <span class="arrow">▼</span></button>
                         <div class="faq-answer">
-                            <p>It is very simple! Just click the "Contact <span class="brand-name">SAFAR <span class="brand-n-badge">N</span> MANZIL</span>" button to open WhatsApp. Tell us what you need in your own words, and we will reply immediately.</p>
+                            <p>It is very simple! Fill in the quick form below and we will contact you, or click the WhatsApp button to message us directly.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -280,15 +383,54 @@
         
     </main>
 
-    <!-- SMART WHATSAPP REQUEST BUILDER (FOOTER) -->
+    <!-- CONTACT & REQUEST FORM (FOOTER) -->
     <footer class="main-footer" id="contact">
         <div class="container fade-in-up">
             <div class="smart-form-container">
                 <div class="form-header text-center">
                     <h2>Tell us what you need.</h2>
-                    <p>Select your requirements below, and we'll format a WhatsApp message for you instantly.</p>
+                    <p>Fill in your details below and we'll reach out — or use the quick request builder to send a WhatsApp message instantly.</p>
                 </div>
 
+                <!-- ── PART 1: Lead Capture Form (goes to CRM) ── -->
+                <div class="lead-capture-form">
+                    <h3>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF9B6A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        Quick Contact — We'll Reach You!
+                    </h3>
+                    <div class="lead-fields-row">
+                        <div class="lead-field">
+                            <label for="lead-name">Your Full Name *</label>
+                            <input type="text" id="lead-name" placeholder="e.g. Ahmed Al-Rashidi" required>
+                        </div>
+                        <div class="lead-field">
+                            <label for="lead-phone">WhatsApp Number *</label>
+                            <input type="tel" id="lead-phone" placeholder="e.g. +91 9876543210" required>
+                        </div>
+                    </div>
+                    <div class="lead-fields-row">
+                        <div class="lead-field">
+                            <label for="lead-email">Email (Optional)</label>
+                            <input type="email" id="lead-email" placeholder="e.g. ahmed@email.com">
+                        </div>
+                        <div class="lead-field">
+                            <label for="lead-service">Service Needed</label>
+                            <input type="text" id="lead-service" placeholder="e.g. Packing boxes, airport taxi…">
+                        </div>
+                    </div>
+                    <div style="text-align:center; margin-top: 1rem;">
+                        <button id="submit-lead-btn" class="btn-solid" style="min-width: 220px;">
+                            ✅ Submit — We'll Call You Back
+                        </button>
+                    </div>
+                    <div id="crm-status" class="crm-status-msg"></div>
+                </div>
+
+                <div class="form-section-divider">
+                    <span>or send via WhatsApp right now</span>
+                </div>
+
+                <!-- ── PART 2: WhatsApp Smart Builder (original) ── -->
                 <div class="smart-form">
                     <!-- Step 1: User Type -->
                     <div class="form-step">
@@ -320,12 +462,12 @@
                         <!-- Options for 'Going to Gulf' -->
                         <div class="needs-container active" id="needs-going">
                             <label class="need-pill"><input type="checkbox" value="Carton Boxes for Packing"><span>📦 Carton Boxes</span></label>
-                            <label class="need-pill"><input type="checkbox" value="Vacuum Bags & Packing Material"><span>🛍️ Vacuum Bags</span></label>
+                            <label class="need-pill"><input type="checkbox" value="Vacuum Bags &amp; Packing Material"><span>🛍️ Vacuum Bags</span></label>
                             <label class="need-pill"><input type="checkbox" value="Luggage Weight Scale"><span>⚖️ Luggage Scale</span></label>
                             <label class="need-pill"><input type="checkbox" value="Help Packing at Home"><span>👷 Home Packing Help</span></label>
                             <label class="need-pill"><input type="checkbox" value="Visa Forms Help"><span>📝 Visa Forms Help</span></label>
                             <label class="need-pill"><input type="checkbox" value="Flight Tickets"><span>✈️ Flight Tickets</span></label>
-                            <label class="need-pill"><input type="checkbox" value="Homemade Pickles & Spices"><span>🍲 Pickles & Spices</span></label>
+                            <label class="need-pill"><input type="checkbox" value="Homemade Pickles &amp; Spices"><span>🍲 Pickles &amp; Spices</span></label>
                             <label class="need-pill"><input type="checkbox" value="Trusted Airport Taxi"><span>🚕 Airport Taxi</span></label>
                         </div>
 
@@ -373,5 +515,66 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // ── CRM Lead Capture ──────────────────────────────────────────
+        // Replace this URL with your actual Vercel CRM deployment URL after deployment.
+        // e.g. https://safar-crm.vercel.app/api/public/lead
+        const CRM_API_URL = 'https://your-crm-vercel-url.vercel.app/api/public/lead';
+
+        document.getElementById('submit-lead-btn').addEventListener('click', async function() {
+            const name = document.getElementById('lead-name').value.trim();
+            const phone = document.getElementById('lead-phone').value.trim();
+            const email = document.getElementById('lead-email').value.trim();
+            const service = document.getElementById('lead-service').value.trim();
+            const statusEl = document.getElementById('crm-status');
+            const btn = this;
+
+            if (!name || !phone) {
+                statusEl.textContent = '⚠️ Please enter your name and WhatsApp number.';
+                statusEl.className = 'crm-status-msg error';
+                statusEl.style.display = 'block';
+                return;
+            }
+
+            btn.textContent = 'Sending…';
+            btn.classList.add('btn-loading');
+            btn.disabled = true;
+            statusEl.style.display = 'none';
+
+            try {
+                const res = await fetch(CRM_API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name,
+                        phone,
+                        email: email || null,
+                        service_interest: service || null,
+                        source: 'website'
+                    })
+                });
+
+                if (res.ok) {
+                    statusEl.textContent = '✅ Thank you! We\'ll reach you on WhatsApp shortly.';
+                    statusEl.className = 'crm-status-msg success';
+                    // Clear fields
+                    document.getElementById('lead-name').value = '';
+                    document.getElementById('lead-phone').value = '';
+                    document.getElementById('lead-email').value = '';
+                    document.getElementById('lead-service').value = '';
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (err) {
+                statusEl.textContent = '❌ Could not send. Please WhatsApp us directly at +91 7207071874';
+                statusEl.className = 'crm-status-msg error';
+            } finally {
+                statusEl.style.display = 'block';
+                btn.textContent = '✅ Submit — We\'ll Call You Back';
+                btn.classList.remove('btn-loading');
+                btn.disabled = false;
+            }
+        });
+    </script>
 </body>
 </html>
