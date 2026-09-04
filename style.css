@@ -975,7 +975,12 @@ body {
     .top-nav { padding: 1.5rem; }
     .nav-links { display: none; }
     .hero-illustration { width: 100%; justify-content: center; }
-    .hero-illustration img { max-width: 100%; height: auto; -webkit-mask-image: none; mask-image: none; }
+    .hero-illustration img { 
+        max-width: 100%; 
+        height: auto; 
+        -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); 
+        mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); 
+    }
 }
 
 @media (max-width: 600px) {
