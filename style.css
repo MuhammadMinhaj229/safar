@@ -1226,7 +1226,7 @@ body {
 .top-nav {
     position: relative; /* Restored to relative, JS will change it to fixed when scrolled */
     z-index: 900;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
 }
 .top-nav.scrolled {
     position: fixed;
