@@ -262,7 +262,7 @@ body {
 .search-btn {
     width: 48px;
     height: 48px;
-    background: white;
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -342,7 +342,7 @@ body {
 .cta-pill {
     position: relative;
     z-index: 2;
-    background: white;
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
     color: #FF9B6A;
     text-decoration: none;
     font-weight: 800;
@@ -363,7 +363,7 @@ body {
 .social-icon {
     width: 44px;
     height: 44px;
-    background: white;
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -488,7 +488,7 @@ body {
     border: 1px solid transparent;
 }
 .feature-box:hover {
-    background: white;
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
     box-shadow: var(--shadow-soft);
     border-color: rgba(255, 155, 106, 0.2);
     transform: translateY(-5px);
@@ -575,7 +575,7 @@ body {
 .btn-large { font-size: 1.25rem; padding: 1.3rem 3.5rem; }
 
 .trust-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
     padding: 4rem;
     border-radius: 30px;
     box-shadow: var(--shadow-hover);
@@ -642,7 +642,7 @@ body {
 }
 
 .faq-item {
-    background: white;
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
     border-radius: 16px;
     margin-bottom: 1.2rem;
     box-shadow: 0 4px 15px rgba(0,0,0,0.02);
@@ -743,7 +743,7 @@ body {
     line-height: 1.55;
 }
 .wa-btn {
-    background: white;
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
     color: #128C7E;
     padding: 1.1rem 2.5rem;
     border-radius: 50px;
@@ -773,7 +773,7 @@ body {
 .smart-form-container {
     max-width: 800px;
     margin: 0 auto 6rem;
-    background: white;
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
     border-radius: 24px;
     box-shadow: var(--shadow-hover);
     padding: 4rem;
@@ -875,7 +875,7 @@ body {
 #custom-details:focus {
     outline: none;
     border-color: #FF9B6A;
-    background: white;
+    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
     box-shadow: 0 5px 15px rgba(255, 155, 106, 0.1);
 }
 
