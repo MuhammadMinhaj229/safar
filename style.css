@@ -1147,3 +1147,22 @@ body {
     .trust-banner { flex-wrap: wrap; text-align: center; }
 }
 
+
+@media (max-width: 600px) {
+    .cta-pill {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        white-space: normal;
+        line-height: 1.4;
+    }
+    .btn-highlight {
+        width: 60px;
+        height: 60px;
+    }
+    .trust-banner {
+        flex-direction: column;
+        gap: 5px;
+        padding: 0.8rem 1rem;
+    }
+}
+
