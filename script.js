@@ -158,3 +158,16 @@ drawerLinks.forEach(link => {
     link.addEventListener('click', closeDrawer);
 });
 
+
+// Sticky Navbar Logic
+const topNav = document.getElementById("main-nav");
+if (topNav) {
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            topNav.classList.add("scrolled");
+        } else {
+            topNav.classList.remove("scrolled");
+        }
+    });
+}
+

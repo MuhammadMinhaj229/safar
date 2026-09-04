@@ -1174,3 +1174,80 @@ body {
 
 .trust-banner { margin-bottom: 2rem; }
 
+
+/* --- Navbar Professionalism UI --- */
+.utility-bar {
+    background: #1A202C;
+    color: white;
+    padding: 0.6rem 4rem;
+    font-size: 0.85rem;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    position: relative;
+}
+.utility-content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.utility-badge {
+    font-weight: 700;
+    color: #E2E8F0;
+    letter-spacing: 0.5px;
+}
+.utility-phone {
+    display: inline-flex;
+    align-items: center;
+    color: #FF9B6A;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+.utility-phone:hover {
+    color: white;
+}
+
+.nav-cta-btn {
+    border: 2px solid #FF9B6A;
+    padding: 0.5rem 1.2rem !important;
+    border-radius: 50px;
+    color: #FF9B6A !important;
+    font-weight: 800 !important;
+    transition: all 0.3s ease;
+}
+.nav-cta-btn:hover {
+    background: #FF9B6A;
+    color: white !important;
+}
+
+.top-nav {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    transition: all 0.3s ease;
+}
+.top-nav.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 1rem 4rem;
+}
+.top-nav.scrolled .logo-text { color: #2D3748; }
+.top-nav.scrolled .logo-accent { color: #FF9B6A; }
+.top-nav.scrolled .nav-links a:not(.nav-cta-btn) { color: #2D3748; }
+.top-nav.scrolled .nav-links a:not(.nav-cta-btn):hover { color: #FF9B6A; }
+.top-nav.scrolled .logo-icon { fill: #FF9B6A; }
+
+@media (max-width: 1000px) {
+    .utility-bar { padding: 0.6rem 1.5rem; }
+    .utility-badge { display: none; }
+    .utility-content { justify-content: center; }
+    .top-nav.scrolled { padding: 1rem 1.5rem; }
+}
+
+
+.top-nav.scrolled .logo-icon { fill: #FF9B6A !important; }
+
