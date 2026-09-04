@@ -160,13 +160,31 @@ drawerLinks.forEach(link => {
 
 
 // Sticky Navbar Logic
-const topNav = document.getElementById("main-nav");
-if (topNav) {
+const originalNav = document.getElementById("main-nav");
+if (originalNav) {
+    const clonedNav = originalNav.cloneNode(true);
+    clonedNav.id = "sticky-nav";
+    clonedNav.className = "sticky-clone"; // Replace classes
+    document.body.appendChild(clonedNav);
+    
+    // Bind mobile menu on the clone
+    const clonedMenuBtn = clonedNav.querySelector("#mobile-menu-btn");
+    if(clonedMenuBtn) {
+        clonedMenuBtn.id = "sticky-menu-btn";
+        clonedMenuBtn.addEventListener("click", openDrawer);
+    }
+    
+    // Close drawer when clicking links in clone
+    const clonedLinks = clonedNav.querySelectorAll('.nav-links a');
+    clonedLinks.forEach(link => {
+        link.addEventListener('click', closeDrawer);
+    });
+
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-            topNav.classList.add("scrolled");
+        if (window.scrollY > 250) {
+            clonedNav.classList.add("visible");
         } else {
-            topNav.classList.remove("scrolled");
+            clonedNav.classList.remove("visible");
         }
     });
 }
