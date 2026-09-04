@@ -132,13 +132,32 @@
                     <a href="#safar-home">Living in Gulf</a>
                     <a href="#contact">Contact Us</a>
                 </div>
-                <div class="search-btn">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF914D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <div class="mobile-menu-btn" id="mobile-menu-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF914D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
                     </svg>
                 </div>
             </nav>
+
+            <!-- Mobile Drawer -->
+            <div class="mobile-drawer-overlay" id="mobile-drawer">
+                <div class="drawer-content">
+                    <button class="drawer-close" id="drawer-close">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2D3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                    <nav class="drawer-links">
+                        <a href="#how-it-works">How it Works</a>
+                        <a href="#safar-go">Going to Gulf</a>
+                        <a href="#safar-home">Living in Gulf</a>
+                        <a href="#contact" class="drawer-cta">Contact Us</a>
+                    </nav>
+                </div>
+            </div>
 
             <!-- Hero Content -->
             <div class="hero-content">
@@ -150,6 +169,11 @@
                     <div class="cta-area">
                         <div class="btn-highlight"></div>
                         <a href="#contact" class="cta-pill">Get Started — <span class="brand-name">SAFAR <span class="brand-n-badge">N</span> MANZIL</span></a>
+                    </div>
+                    
+                    <div class="trust-banner fade-in-up delay-1">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>Trusted by <strong>500+</strong> Gulf Expats & Families</p>
                     </div>
                     
                     <div class="social-links delay-1 fade-in-up">
@@ -177,41 +201,6 @@
     <!-- MAIN WEBSITE CONTENT -->
     <main class="main-content">
         
-        <!-- HOW IT WORKS -->
-        <section id="how-it-works" class="section-padding bg-light">
-            <div class="container">
-                <div class="section-header text-center fade-in-up">
-                    <span class="badge">How It Works</span>
-                    <h2>Three Ways We Help You</h2>
-                    <p>Instead of searching for many different people, just ask <span class="brand-name">SAFAR <span class="brand-n-badge">N</span> MANZIL</span>. Here is how we handle your requests.</p>
-                </div>
-                
-                <div class="process-grid">
-                    <div class="process-card fade-in-up delay-1">
-                        <div class="process-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                        </div>
-                        <h3>We Do</h3>
-                        <p>If you need packing materials like boxes, covers, or scales, we provide them directly to you.</p>
-                    </div>
-                    <div class="process-card fade-in-up delay-2">
-                        <div class="process-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
-                        </div>
-                        <h3>We Assist</h3>
-                        <p>If you need help with online forms, visas, or documents, we guide you through the exact process safely.</p>
-                    </div>
-                    <div class="process-card fade-in-up delay-3">
-                        <div class="process-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        </div>
-                        <h3>We Connect</h3>
-                        <p>If you need a cab or transport, we connect you to our trusted, verified local partners.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- SAFAR GO SECTION -->
         <section id="safar-go" class="section-padding bg-white">
             <div class="container">
@@ -279,6 +268,41 @@
                             <h3>Peace of Mind</h3>
                             <p>"I live in Dubai, and <span class="brand-name">SAFAR <span class="brand-n-badge">N</span> MANZIL</span> helped arrange a trusted cab and delivered groceries to my parents in India. It is so easy!"</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW IT WORKS -->
+        <section id="how-it-works" class="section-padding bg-light">
+            <div class="container">
+                <div class="section-header text-center fade-in-up">
+                    <span class="badge">How It Works</span>
+                    <h2>Three Ways We Help You</h2>
+                    <p>Instead of searching for many different people, just ask <span class="brand-name">SAFAR <span class="brand-n-badge">N</span> MANZIL</span>. Here is how we handle your requests.</p>
+                </div>
+                
+                <div class="process-grid">
+                    <div class="process-card fade-in-up delay-1">
+                        <div class="process-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        </div>
+                        <h3>We Do</h3>
+                        <p>If you need packing materials like boxes, covers, or scales, we provide them directly to you.</p>
+                    </div>
+                    <div class="process-card fade-in-up delay-2">
+                        <div class="process-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><line x1="10" y1="9" x2="8" y2="9"></line></svg>
+                        </div>
+                        <h3>We Assist</h3>
+                        <p>If you need help with online forms, visas, or documents, we guide you through the exact process safely.</p>
+                    </div>
+                    <div class="process-card fade-in-up delay-3">
+                        <div class="process-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3>We Connect</h3>
+                        <p>If you need a cab or transport, we connect you to our trusted, verified local partners.</p>
                     </div>
                 </div>
             </div>
@@ -386,19 +410,21 @@
     <!-- CONTACT & REQUEST FORM (FOOTER) -->
     <footer class="main-footer" id="contact">
         <div class="container fade-in-up">
-            <div class="smart-form-container">
-                <div class="form-header text-center">
-                    <h2>Tell us what you need.</h2>
-                    <p>Fill in your details below and we'll reach out — or use the quick request builder to send a WhatsApp message instantly.</p>
-                </div>
-
+            <div class="form-header text-center">
+                <h2>Ready to get started?</h2>
+                <p>Fill in the quick form for a callback, or use the smart builder to message us on WhatsApp instantly.</p>
+            </div>
+            
+            <div class="footer-forms-grid">
                 <!-- ── PART 1: Lead Capture Form (goes to CRM) ── -->
                 <div class="lead-capture-form">
                     <h3>
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF9B6A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                        Quick Contact — We'll Reach You!
+                        Quick Contact Callback
                     </h3>
-                    <div class="lead-fields-row">
+                    <p class="form-sub">We'll call you back as soon as possible.</p>
+                    
+                    <div class="lead-fields-column">
                         <div class="lead-field">
                             <label for="lead-name">Your Full Name *</label>
                             <input type="text" id="lead-name" placeholder="e.g. Ahmed Al-Rashidi" required>
@@ -407,8 +433,6 @@
                             <label for="lead-phone">WhatsApp Number *</label>
                             <input type="tel" id="lead-phone" placeholder="e.g. +91 9876543210" required>
                         </div>
-                    </div>
-                    <div class="lead-fields-row">
                         <div class="lead-field">
                             <label for="lead-email">Email (Optional)</label>
                             <input type="email" id="lead-email" placeholder="e.g. ahmed@email.com">
@@ -418,20 +442,25 @@
                             <input type="text" id="lead-service" placeholder="e.g. Packing boxes, airport taxi…">
                         </div>
                     </div>
-                    <div style="text-align:center; margin-top: 1rem;">
-                        <button id="submit-lead-btn" class="btn-solid" style="min-width: 220px;">
-                            ✅ Submit — We'll Call You Back
+                    <div style="margin-top: 1.5rem;">
+                        <button id="submit-lead-btn" class="btn-solid" style="width: 100%;">
+                            ✅ Submit Details
                         </button>
                     </div>
                     <div id="crm-status" class="crm-status-msg"></div>
                 </div>
 
-                <div class="form-section-divider">
-                    <span>or send via WhatsApp right now</span>
+                <div class="form-section-divider-vertical">
+                    <span>OR</span>
                 </div>
 
-                <!-- ── PART 2: WhatsApp Smart Builder (original) ── -->
+                <!-- ── PART 2: WhatsApp Smart Builder ── -->
                 <div class="smart-form">
+                    <h3 style="font-size:1.1rem; font-weight:800; color:#2D3748; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        Instant WhatsApp Request
+                    </h3>
+                    <p class="form-sub" style="margin-bottom:1.5rem;">Build your message and send it directly.</p>
                     <!-- Step 1: User Type -->
                     <div class="form-step">
                         <h3>1. Where are you based?</h3>

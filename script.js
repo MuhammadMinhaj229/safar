@@ -125,3 +125,36 @@ sendWhatsappBtn.addEventListener('click', () => {
     
     window.open(whatsappUrl, '_blank');
 });
+// Mobile Menu Logic
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileDrawer = document.getElementById('mobile-drawer');
+const drawerClose = document.getElementById('drawer-close');
+const drawerLinks = document.querySelectorAll('.drawer-links a');
+
+function openDrawer() {
+    mobileDrawer.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent scrolling
+}
+
+function closeDrawer() {
+    mobileDrawer.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', openDrawer);
+}
+if (drawerClose) {
+    drawerClose.addEventListener('click', closeDrawer);
+}
+if (mobileDrawer) {
+    mobileDrawer.addEventListener('click', (e) => {
+        if (e.target === mobileDrawer) {
+            closeDrawer();
+        }
+    });
+}
+drawerLinks.forEach(link => {
+    link.addEventListener('click', closeDrawer);
+});
+
