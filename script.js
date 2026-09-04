@@ -165,12 +165,14 @@ const navPlaceholder = document.querySelector(".nav-placeholder");
 
 if (topNav && navPlaceholder) {
     let isSticky = false;
-    let navHeight = topNav.offsetHeight;
+    
+    // Set a permanent min-height so the placeholder never collapses, 
+    // eliminating any layout jumping on mobile.
+    navPlaceholder.style.minHeight = topNav.offsetHeight + "px";
 
     window.addEventListener("resize", () => {
-        // Only read offsetHeight when not sticky, or it might read the compressed scrolled height
         if (!isSticky) {
-            navHeight = topNav.offsetHeight;
+            navPlaceholder.style.minHeight = topNav.offsetHeight + "px";
         }
     });
 
@@ -180,12 +182,10 @@ if (topNav && navPlaceholder) {
         
         if (shouldBeSticky && !isSticky) {
             isSticky = true;
-            navPlaceholder.style.height = navHeight + "px"; // Set height first to prevent jump
             topNav.classList.add("scrolled");
         } else if (!shouldBeSticky && isSticky) {
             isSticky = false;
             topNav.classList.remove("scrolled");
-            navPlaceholder.style.height = "0px";
         }
     }, { passive: true });
 }
