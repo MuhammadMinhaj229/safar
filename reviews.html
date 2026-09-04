@@ -3,179 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safar N Manzil - Customer Reviews</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- CSS -->
+    <title>Customer Reviews | SAFAR N MANZIL</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     
     <style>
         /* Specific Styles for Reviews Page */
-        .reviews-hero {
-            padding: 8rem 2rem 4rem;
-            text-align: center;
-            background: linear-gradient(135deg, #1A202C 0%, #2D3748 100%);
-            color: white;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .reviews-hero h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #FF9B6A, #FFB896);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .reviews-hero p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
         .reviews-container {
             max-width: 1200px;
-            margin: 4rem auto;
+            margin: -6rem auto 4rem; /* Overlap with hero slightly */
             padding: 0 2rem;
+            position: relative;
+            z-index: 10;
         }
         
-        /* Masonry Grid */
         .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
             align-items: start;
         }
         
         .review-card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 155, 106, 0.1);
+            border: 1px solid rgba(255, 155, 106, 0.15);
             border-radius: 24px;
             padding: 2.5rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             animation: fadeUp 0.6s ease-out forwards;
             opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Subtle orange glow line at top of card */
+        .review-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF9B6A, #FFBE92);
+            opacity: 0;
+            transition: all 0.4s ease;
         }
         
         @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
         .review-card:hover {
-            transform: translateY(-10px) scale(1.02);
+            transform: translateY(-12px) scale(1.02);
             box-shadow: 0 30px 60px rgba(255, 155, 106, 0.15);
             border-color: rgba(255, 155, 106, 0.4);
+        }
+        .review-card:hover::before {
+            opacity: 1;
         }
         
         .stars {
             display: flex;
             gap: 0.2rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
         }
         
         .stars svg {
-            width: 20px;
-            height: 20px;
-            fill: #F59E0B;
-            color: #F59E0B;
+            width: 22px;
+            height: 22px;
+            fill: #FF9B6A; /* Brand orange stars instead of generic yellow */
+            color: #FF9B6A;
+            filter: drop-shadow(0 2px 4px rgba(255, 155, 106, 0.3));
         }
         
         .review-text {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: #4A5568;
-            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--clr-text-main);
+            margin-bottom: 2rem;
             font-style: italic;
+            font-weight: 600;
         }
         
         .review-author {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.2rem;
         }
         
         .author-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #FF9B6A, #FF7B3A);
+            width: 48px;
+            height: 48px;
+            border-radius: 16px; /* Squircle instead of perfect circle */
+            background: linear-gradient(135deg, #FF9B6A, #FFBE92);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 1.2rem;
+            font-weight: 800;
+            font-size: 1.3rem;
+            box-shadow: 0 10px 20px rgba(255, 155, 106, 0.2);
         }
         
         .author-info h4 {
-            font-weight: 700;
-            color: #1A202C;
-            margin: 0;
-            font-size: 1rem;
+            font-weight: 800;
+            color: var(--clr-text-main);
+            margin: 0 0 0.2rem 0;
+            font-size: 1.1rem;
         }
         
         .author-info span {
             font-size: 0.85rem;
-            color: #718096;
+            color: var(--clr-text-light);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .loading-state {
             text-align: center;
-            padding: 4rem;
+            padding: 8rem 4rem;
             font-size: 1.2rem;
-            color: #718096;
-            font-weight: 600;
+            color: var(--clr-text-main);
+            font-weight: 800;
         }
         
         .empty-state {
             text-align: center;
-            padding: 4rem;
-            font-size: 1.2rem;
-            color: #718096;
-            background: white;
-            border-radius: 20px;
-            border: 1px dashed #CBD5E0;
+            padding: 5rem 4rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 24px;
+            border: 2px dashed rgba(255, 155, 106, 0.3);
             grid-column: 1 / -1;
+            box-shadow: var(--shadow-soft);
+        }
+        .empty-state h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--clr-text-main);
+            margin-bottom: 0.5rem;
+        }
+        .empty-state p {
+            font-size: 1.1rem;
+            color: var(--clr-text-light);
+        }
+
+        /* Adjust hero for inner pages */
+        .dribbble-card-hero {
+            height: 450px;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .dribbble-card-hero .main-title {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .dribbble-card-hero .description {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
         }
     </style>
 </head>
-<body class="bg-[#F8FAFC]">
-
-    <!-- Navbar placeholder to prevent layout shifts -->
-    <div class="nav-placeholder"></div>
-
-    <!-- Navigation -->
-    <div class="nav-wrapper">
-        <nav class="top-nav">
-            <a href="index.html" class="logo">
-                <svg class="logo-icon" viewBox="0 0 24 24">
-                    <path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z"/>
-                    <circle cx="12" cy="15" r="2.5"/>
-                </svg>
-                <span class="logo-text">Safar <span class="logo-accent">N</span> Manzil</span>
-            </a>
-            <div class="nav-links">
-                <a href="index.html#how-it-works">Our Process</a>
-                <a href="index.html#safar-go">Going to Gulf</a>
-                <a href="index.html#safar-home">Living in Gulf</a>
-                <a href="reviews.html">Reviews</a>
-            </div>
-            <div class="nav-actions" style="display: flex; align-items: center; gap: 1rem;">
-                <a href="index.html#contact" class="nav-cta-btn desktop-cta">WhatsApp Us</a>
-                <div class="mobile-menu-btn" id="mobile-menu-btn">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF914D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="3" y1="12" x2="21" y2="12"></line>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <line x1="3" y1="18" x2="21" y2="18"></line>
-                    </svg>
+<body class="bg-light">
+    
+    <!-- Hero Section: The Dribbble Presentation -->
+    <div class="presentation-bg" style="min-height: auto; padding-bottom: 8rem;">
+        <div class="dribbble-card dribbble-card-hero shadow-lg">
+            
+            <!-- Utility Bar -->
+            <div class="utility-bar">
+                <div class="utility-content">
+                    <div class="utility-full-ticker">
+                        <div class="ticker-wrapper-large">
+                            <span>We do...</span>
+                            <span>We assist...</span>
+                            <span>We provide...</span>
+                            <span>We are always here...</span>
+                            <span>We are always with you...</span>
+                            <a href="https://wa.me/917207071874" target="_blank">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                WhatsApp Us: +91 7207071874
+                            </a>
+                            <span>We do...</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </div>
+            
+            <!-- Navbar -->
+            <div class="nav-placeholder">
+                <nav class="top-nav" id="main-nav">
+                    <a href="index.html" class="logo" aria-label="SAFAR N MANZIL Home">
+                        <svg class="logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                        </svg>
+                        <span class="logo-text">Safar <span class="logo-accent">N</span> Manzil</span>
+                    </a>
+                    <div class="nav-links">
+                        <a href="index.html#how-it-works">Our Process</a>
+                        <a href="index.html#safar-go">Going to Gulf</a>
+                        <a href="index.html#safar-home">Living in Gulf</a>
+                        <a href="reviews.html">Reviews</a>
+                    </div>
+                    <div class="nav-actions" style="display: flex; align-items: center; gap: 1rem;">
+                        <a href="index.html#contact" class="nav-cta-btn desktop-cta">WhatsApp Us</a>
+                        <div class="mobile-menu-btn" id="mobile-menu-btn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF914D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                        </div>
+                    </div>
+                </nav>
+            </div>
 
+            <!-- Hero Content -->
+            <div style="width: 100%; padding: 0 2rem; position: relative; z-index: 2;">
+                <h1 class="main-title text-center fade-in-up" style="color: white; margin-top: 1rem;">What Our <span style="font-family: 'Dancing Script', cursive;">Customers</span> Say</h1>
+                <p class="description fade-in-up delay-1 text-center">Real stories and experiences from the people we've helped settle, travel, and thrive in the Gulf.</p>
+            </div>
+            
+        </div>
+    </div>
+    
     <!-- Mobile Drawer -->
     <div class="mobile-drawer-overlay" id="mobile-drawer">
         <div class="drawer-content">
@@ -195,32 +255,27 @@
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="reviews-hero">
-        <h1>What Our Customers Say</h1>
-        <p>Real stories and experiences from the people we've helped settle, travel, and thrive in the Gulf.</p>
-    </section>
-
     <!-- Reviews Grid -->
     <section class="reviews-container">
-        <div id="loading" class="loading-state">
-            Loading real stories...
+        <div id="loading" class="loading-state fade-in-up">
+            <span class="brand-name" style="font-size: 1.5rem;">SAFAR <span class="brand-n-badge" style="font-size: 1.5rem; margin: 0 4px;">N</span> MANZIL</span><br>
+            <span style="display: block; margin-top: 1rem; opacity: 0.7;">Loading Customer Stories...</span>
         </div>
         <div id="reviews-grid" class="reviews-grid" style="display: none;">
             <!-- Reviews will be injected here via JS -->
         </div>
     </section>
 
-    <!-- Simple Footer -->
-    <footer style="background: #1A202C; padding: 3rem 2rem; color: rgba(255,255,255,0.7); text-align: center; margin-top: 4rem;">
-        <div class="logo" style="justify-content: center; margin-bottom: 1.5rem;">
-            <svg class="logo-icon" viewBox="0 0 24 24" fill="#FF9B6A">
+    <!-- Footer -->
+    <footer style="background: white; padding: 4rem 2rem; border-top: 1px solid rgba(0,0,0,0.05); text-align: center;">
+        <div class="logo" style="justify-content: center; margin-bottom: 1.5rem; color: var(--clr-text-main);">
+            <svg class="logo-icon" viewBox="0 0 24 24" fill="#FF9B6A" style="width: 32px; height: 32px; transform: rotate(45deg);">
                 <path d="M12 2L2 22h20L12 2zm0 4.5l6.5 13.5h-13L12 6.5z"/>
                 <circle cx="12" cy="15" r="2.5" fill="white"/>
             </svg>
-            <span class="logo-text" style="color: white;">Safar <span class="logo-accent">N</span> Manzil</span>
+            <span class="logo-text">Safar <span class="logo-accent-dark">N</span> Manzil</span>
         </div>
-        <p>© 2026 Safar N Manzil. All Rights Reserved.</p>
+        <p style="color: var(--clr-text-light); font-weight: 600;">© 2026 SAFAR N MANZIL. All Rights Reserved.</p>
     </footer>
 
     <!-- JS Files -->
@@ -228,7 +283,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <script>
-        // Initialize Supabase Client
         const SUPABASE_URL = "https://uzpnvylarbfttzhjqduj.supabase.co";
         const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV6cG52eWxhcmJmdHR6aGpxZHVqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgwMTg4MjUsImV4cCI6MjEwMzU5NDgyNX0.64xT5zxppdu4zopmsm_CT4gaVsXemRZyv9tM6Lx46zU";
         const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
@@ -238,7 +292,6 @@
             const gridEl = document.getElementById('reviews-grid');
 
             try {
-                // Fetch only approved reviews, most recent first
                 const { data, error } = await supabaseClient
                     .from('customer_feedback')
                     .select('*')
@@ -253,14 +306,13 @@
                 if (!data || data.length === 0) {
                     gridEl.innerHTML = `
                         <div class="empty-state">
-                            <p>No reviews have been published yet.</p>
-                            <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.7;">Check back soon to read customer experiences!</p>
+                            <h3>No reviews yet</h3>
+                            <p>Check back soon to read customer experiences!</p>
                         </div>
                     `;
                     return;
                 }
 
-                // Render reviews
                 gridEl.innerHTML = data.map((review, index) => {
                     const stars = Array(5).fill(0).map((_, i) => {
                         return i < review.rating 
@@ -299,7 +351,6 @@
             }
         }
 
-        // Run on page load
         document.addEventListener('DOMContentLoaded', fetchReviews);
     </script>
 </body>
