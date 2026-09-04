@@ -1251,3 +1251,11 @@ body {
 
 .top-nav.scrolled .logo-icon { fill: #FF9B6A !important; }
 
+
+@media (max-width: 600px) {
+    .nav-cta-btn {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem !important;
+    }
+}
+
