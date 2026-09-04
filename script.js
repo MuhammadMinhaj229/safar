@@ -164,15 +164,29 @@ const topNav = document.getElementById("main-nav");
 const navPlaceholder = document.querySelector(".nav-placeholder");
 
 if (topNav && navPlaceholder) {
-    window.addEventListener("scroll", () => {
-        const rect = navPlaceholder.getBoundingClientRect();
-        if (rect.top <= 0) {
-            topNav.classList.add("scrolled");
-            navPlaceholder.style.height = topNav.offsetHeight + "px";
-        } else {
-            topNav.classList.remove("scrolled");
-            navPlaceholder.style.height = "auto";
+    let isSticky = false;
+    let navHeight = topNav.offsetHeight;
+
+    window.addEventListener("resize", () => {
+        // Only read offsetHeight when not sticky, or it might read the compressed scrolled height
+        if (!isSticky) {
+            navHeight = topNav.offsetHeight;
         }
     });
+
+    window.addEventListener("scroll", () => {
+        const rect = navPlaceholder.getBoundingClientRect();
+        const shouldBeSticky = rect.top <= 0;
+        
+        if (shouldBeSticky && !isSticky) {
+            isSticky = true;
+            navPlaceholder.style.height = navHeight + "px"; // Set height first to prevent jump
+            topNav.classList.add("scrolled");
+        } else if (!shouldBeSticky && isSticky) {
+            isSticky = false;
+            topNav.classList.remove("scrolled");
+            navPlaceholder.style.height = "0px";
+        }
+    }, { passive: true });
 }
 
