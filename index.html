@@ -113,8 +113,9 @@
         }
     </style>
 </head>
+<body>
     <!-- Utility Bar -->
-    <div class="utility-bar" style="display: none;">
+    <div class="utility-bar">
         <div class="utility-content">
             <span class="utility-badge">🟢 Available 24/7 for Assistance</span>
             <a href="https://wa.me/917207071874" class="utility-phone" target="_blank">
@@ -124,35 +125,34 @@
         </div>
     </div>
     
-    <!-- Hero Section: The Dribbble Presentation -->
-    <div class="presentation-bg">
-        <div class="dribbble-card shadow-lg">
-            
-            <!-- Navbar -->
-            <nav class="top-nav" id="main-nav">
-                <a href="index.html" class="logo" aria-label="SAFAR N MANZIL Home">
-                    <svg class="logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
-                    </svg>
-                    <span class="logo-text">Safar <span class="logo-accent">N</span> Manzil</span>
-                </a>
-                <div class="nav-links">
-                    <a href="#how-it-works">Our Process</a>
-                    <a href="#safar-go">Going to Gulf</a>
-                    <a href="#safar-home">Living in Gulf</a>
-                    <a href="#trust">Reviews</a>
-                </div>
-                <div class="nav-actions" style="display: flex; align-items: center; gap: 1rem;">
-                    <a href="#contact" class="nav-cta-btn desktop-cta">WhatsApp Us</a>
-                    <div class="mobile-menu-btn" id="mobile-menu-btn">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF914D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="3" y1="12" x2="21" y2="12"></line>
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <line x1="3" y1="18" x2="21" y2="18"></line>
-                        </svg>
-                    </div>
-                </div>
-            </nav>
+    <!-- Navbar -->
+    <nav class="top-nav" id="main-nav">
+        <a href="index.html" class="logo" aria-label="SAFAR N MANZIL Home">
+            <svg class="logo-icon" width="32" height="32" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+            </svg>
+            <span class="logo-text">Safar <span class="logo-accent">N</span> Manzil</span>
+        </a>
+        <div class="nav-links">
+            <a href="#how-it-works">Our Process</a>
+            <a href="#safar-go">Going to Gulf</a>
+            <a href="#safar-home">Living in Gulf</a>
+            <a href="#trust">Reviews</a>
+        </div>
+        <div class="nav-actions" style="display: flex; align-items: center; gap: 1rem;">
+            <a href="#contact" class="nav-cta-btn desktop-cta">WhatsApp Us</a>
+            <div class="mobile-menu-btn" id="mobile-menu-btn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF914D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer-overlay" id="mobile-drawer">
         <div class="drawer-content">
             <button class="drawer-close" id="drawer-close">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2D3748" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
