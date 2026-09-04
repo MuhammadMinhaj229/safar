@@ -159,34 +159,4 @@ drawerLinks.forEach(link => {
 });
 
 
-// Sticky Navbar Logic
-const topNav = document.getElementById("main-nav");
-const navPlaceholder = document.querySelector(".nav-placeholder");
-
-if (topNav && navPlaceholder) {
-    let isSticky = false;
-    
-    // Set a permanent min-height so the placeholder never collapses, 
-    // eliminating any layout jumping on mobile.
-    navPlaceholder.style.minHeight = topNav.offsetHeight + "px";
-
-    window.addEventListener("resize", () => {
-        if (!isSticky) {
-            navPlaceholder.style.minHeight = topNav.offsetHeight + "px";
-        }
-    });
-
-    window.addEventListener("scroll", () => {
-        const rect = navPlaceholder.getBoundingClientRect();
-        const shouldBeSticky = rect.top <= 0;
-        
-        if (shouldBeSticky && !isSticky) {
-            isSticky = true;
-            topNav.classList.add("scrolled");
-        } else if (!shouldBeSticky && isSticky) {
-            isSticky = false;
-            topNav.classList.remove("scrolled");
-        }
-    }, { passive: true });
-}
-
+// Sticky Navbar Logic removed
