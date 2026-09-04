@@ -224,7 +224,7 @@
         // Initialize Supabase Client
         const SUPABASE_URL = "https://uzpnvylarbfttzhjqduj.supabase.co";
         const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV6cG52eWxhcmJmdHR6aGpxZHVqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgwMTg4MjUsImV4cCI6MjEwMzU5NDgyNX0.64xT5zxppdu4zopmsm_CT4gaVsXemRZyv9tM6Lx46zU";
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         async function fetchReviews() {
             const loadingEl = document.getElementById('loading');
@@ -232,7 +232,7 @@
 
             try {
                 // Fetch only approved reviews, most recent first
-                const { data, error } = await supabase
+                const { data, error } = await supabaseClient
                     .from('customer_feedback')
                     .select('*')
                     .eq('status', 'approved')
