@@ -76,8 +76,8 @@ body {
     background-color: var(--clr-bg-presentation);
     background-image: radial-gradient(circle at top right, rgba(160, 190, 240, 0.4) 0%, transparent 50%), 
                       radial-gradient(circle at top left, #D1BBFF 0%, transparent 40%);
-    min-height: 100vh;
-    padding: 3rem 2rem;
+    min-height: calc(100vh - 80px);
+    padding: 1rem 2rem 3rem 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1228,6 +1228,7 @@ body {
     top: 0;
     z-index: 900;
     transition: all 0.3s ease;
+    background: #1A202C; /* Dark background to match logo text */
 }
 .top-nav.scrolled {
     background: rgba(255, 255, 255, 0.95);
@@ -1246,6 +1247,7 @@ body {
     .utility-badge { display: none; }
     .utility-content { justify-content: center; }
     .top-nav.scrolled { padding: 1rem 1.5rem; }
+    .desktop-cta { display: none !important; }
 }
 
 
