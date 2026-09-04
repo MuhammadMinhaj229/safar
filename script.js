@@ -161,12 +161,17 @@ drawerLinks.forEach(link => {
 
 // Sticky Navbar Logic
 const topNav = document.getElementById("main-nav");
-if (topNav) {
+const navPlaceholder = document.querySelector(".nav-placeholder");
+
+if (topNav && navPlaceholder) {
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
+        const rect = navPlaceholder.getBoundingClientRect();
+        if (rect.top <= 0) {
             topNav.classList.add("scrolled");
+            navPlaceholder.style.height = topNav.offsetHeight + "px";
         } else {
             topNav.classList.remove("scrolled");
+            navPlaceholder.style.height = "auto";
         }
     });
 }
