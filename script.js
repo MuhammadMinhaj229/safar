@@ -159,4 +159,62 @@ drawerLinks.forEach(link => {
 });
 
 
-// Sticky Navbar Logic removed
+// ----------------------------------------------------
+// MOBILE STICKY NAVBAR LOGIC (< 1000px only)
+// ----------------------------------------------------
+(function initMobileStickyNav() {
+    const topNav = document.getElementById('main-nav');
+    const navPlaceholder = document.querySelector('.nav-placeholder');
+    if (!topNav || !navPlaceholder) return;
+
+    const MOBILE_BREAKPOINT = 1000;
+    let isSticky = false;
+
+    function isMobile() {
+        return window.innerWidth <= MOBILE_BREAKPOINT;
+    }
+
+    function updateStickyNav() {
+        if (!isMobile()) {
+            if (isSticky) {
+                isSticky = false;
+                topNav.classList.remove('is-sticky', 'scrolled');
+                navPlaceholder.style.height = '';
+            }
+            return;
+        }
+
+        const placeholderRect = navPlaceholder.getBoundingClientRect();
+        const shouldBeSticky = placeholderRect.top <= 0;
+
+        if (shouldBeSticky && !isSticky) {
+            isSticky = true;
+            // Lock placeholder height before pinning to prevent any layout shift
+            navPlaceholder.style.height = topNav.offsetHeight + 'px';
+            topNav.classList.add('is-sticky', 'scrolled');
+        } else if (!shouldBeSticky && isSticky) {
+            isSticky = false;
+            topNav.classList.remove('is-sticky', 'scrolled');
+            navPlaceholder.style.height = '';
+        }
+    }
+
+    // Passive scroll listener for 60fps performance
+    window.addEventListener('scroll', updateStickyNav, { passive: true });
+
+    // Handle viewport resize / orientation change
+    window.addEventListener('resize', () => {
+        if (!isMobile()) {
+            if (isSticky) {
+                isSticky = false;
+                topNav.classList.remove('is-sticky', 'scrolled');
+                navPlaceholder.style.height = '';
+            }
+        } else if (isSticky) {
+            navPlaceholder.style.height = topNav.offsetHeight + 'px';
+        }
+    });
+
+    // Initial check on load
+    updateStickyNav();
+})();

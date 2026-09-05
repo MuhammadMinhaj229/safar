@@ -20,6 +20,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-primary);
     color: var(--clr-text-main);
@@ -277,14 +281,22 @@ body {
 }
 
 .mobile-menu-btn {
-    width: 48px;
-    height: 48px;
-    background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
-    border-radius: 50%;
-    display: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    font-family: inherit;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: none;
     box-shadow: var(--shadow-soft);
     transition: var(--transition);
 }
@@ -976,6 +988,7 @@ body {
 
 /* Responsive */
 @media (max-width: 1000px) {
+    html { scroll-padding-top: 80px; }
     .presentation-bg { padding: 0; background: none; } /* Remove wrapper on mobile to prevent visual break */
     .dribbble-card { 
         height: auto; 
@@ -991,12 +1004,62 @@ body {
     .two-col-layout { grid-template-columns: 1fr; gap: 3rem; }
     .top-nav { padding: 1.5rem; }
     .nav-links { display: none; }
+    .mobile-menu-btn { display: flex; }
     .hero-illustration { width: 100%; justify-content: center; }
     .hero-illustration img { 
         max-width: 100%; 
         height: auto; 
         -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); 
         mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); 
+    }
+
+    /* Mobile Sticky Navigation State */
+    .top-nav.is-sticky,
+    .top-nav.scrolled {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 0.85rem 1.5rem;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border-bottom: 1px solid rgba(255, 155, 106, 0.2);
+        z-index: 990;
+        border-radius: 0;
+        animation: navSlideDown 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    @keyframes navSlideDown {
+        from { transform: translateY(-100%); }
+        to { transform: translateY(0); }
+    }
+
+    /* Logo high-contrast styling against white glass navbar */
+    .top-nav.is-sticky .logo-text,
+    .top-nav.scrolled .logo-text {
+        color: #2D3748;
+    }
+
+    .top-nav.is-sticky .logo-icon,
+    .top-nav.scrolled .logo-icon {
+        fill: #FF9B6A !important;
+    }
+
+    .top-nav.is-sticky .logo-accent,
+    .top-nav.scrolled .logo-accent {
+        background: rgba(255, 145, 77, 0.15);
+        color: #FF914D;
+        border-color: rgba(255, 145, 77, 0.4);
+    }
+
+    /* Mobile Menu Button on Sticky Nav */
+    .top-nav.is-sticky .mobile-menu-btn,
+    .top-nav.scrolled .mobile-menu-btn {
+        background: rgba(255, 155, 106, 0.1);
+        border: 1px solid rgba(255, 155, 106, 0.3);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     }
 }
 
@@ -1171,10 +1234,11 @@ body {
 
 
 @media (max-width: 600px) {
+    .cta-area { margin-bottom: 2rem; }
     .cta-pill {
-        padding: 1rem 1.5rem;
+        padding: 1rem 2.2rem;
         font-size: 1rem;
-        white-space: normal;
+        white-space: nowrap;
         line-height: 1.4;
     }
     .btn-highlight {
@@ -1191,10 +1255,11 @@ body {
 
 .trust-banner { margin-bottom: 2rem; }
 
-/* --- Navbar Professionalism UI --- */
+/* --- Navbar Professionalism UI: Refined Utility Bar --- */
 .utility-bar {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     color: white;
     padding: 0;
@@ -1216,12 +1281,14 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, transparent 100%);
+    mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, transparent 100%);
 }
 
 .utility-track {
     display: flex;
     flex-direction: column;
-    animation: slotMachine 20s infinite cubic-bezier(0.25, 1, 0.5, 1);
+    animation: utilityRotate 21s infinite ease-in-out;
 }
 
 .utility-bar:hover .utility-track {
@@ -1233,34 +1300,132 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.95rem;
+    font-size: clamp(0.82rem, 2vw, 0.95rem);
     font-weight: 700;
     color: rgba(255, 255, 255, 0.95);
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     white-space: nowrap;
+    padding: 0 1rem;
 }
 
 .utility-wa-link {
+    color: rgba(255, 255, 255, 0.95);
+    text-decoration: none;
     display: inline-flex;
     align-items: center;
-    color: #FF9B6A;
-    text-decoration: none;
-    transition: all 0.3s ease;
+    transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .utility-wa-link:hover {
-    color: white;
-    transform: scale(1.05);
+    color: #FFFFFF;
+    opacity: 1;
 }
 
-@keyframes slotMachine {
-    0%, 12% { transform: translateY(0); }
-    16%, 28% { transform: translateY(-40px); }
-    32%, 44% { transform: translateY(-80px); }
-    48%, 60% { transform: translateY(-120px); }
-    64%, 76% { transform: translateY(-160px); }
-    80%, 92% { transform: translateY(-200px); }
-    96%, 100% { transform: translateY(-240px); }
+/* Rotational Animation: 6 distinct items, ~3s hold per item, 0.5s smooth fade & slide transition */
+@keyframes utilityRotate {
+    /* Item 1: "We do..." */
+    0%, 14.29% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    15.24% {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    15.71% {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    
+    /* Item 2: "We assist..." */
+    16.67%, 30.95% {
+        transform: translateY(-40px);
+        opacity: 1;
+    }
+    31.90% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    32.38% {
+        transform: translateY(-70px);
+        opacity: 0;
+    }
+    
+    /* Item 3: "We provide..." */
+    33.33%, 47.62% {
+        transform: translateY(-80px);
+        opacity: 1;
+    }
+    48.57% {
+        transform: translateY(-90px);
+        opacity: 0;
+    }
+    49.05% {
+        transform: translateY(-110px);
+        opacity: 0;
+    }
+    
+    /* Item 4: "We are always here..." */
+    50.00%, 64.29% {
+        transform: translateY(-120px);
+        opacity: 1;
+    }
+    65.24% {
+        transform: translateY(-130px);
+        opacity: 0;
+    }
+    65.71% {
+        transform: translateY(-150px);
+        opacity: 0;
+    }
+    
+    /* Item 5: "We are always with you..." */
+    66.67%, 80.95% {
+        transform: translateY(-160px);
+        opacity: 1;
+    }
+    81.90% {
+        transform: translateY(-170px);
+        opacity: 0;
+    }
+    82.38% {
+        transform: translateY(-190px);
+        opacity: 0;
+    }
+    
+    /* Item 6: "WhatsApp Us: +91 7207071874" */
+    83.33%, 97.62% {
+        transform: translateY(-200px);
+        opacity: 1;
+    }
+    98.57% {
+        transform: translateY(-210px);
+        opacity: 0;
+    }
+    99.05% {
+        transform: translateY(-230px);
+        opacity: 0;
+    }
+    
+    /* Seamless Loop into Item 7 (Duplicate of Item 1) */
+    100.00% {
+        transform: translateY(-240px);
+        opacity: 1;
+    }
+}
+
+/* Accessibility: Pause animation for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .utility-track {
+        animation: none !important;
+    }
+    html {
+        scroll-behavior: auto !important;
+    }
+    .top-nav.is-sticky,
+    .top-nav.scrolled {
+        animation: none !important;
+    }
 }
 
 .nav-cta-btn {
@@ -1287,8 +1452,7 @@ body {
     transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
 }
 @media (max-width: 1000px) {
-    .utility-bar { padding: 0.5rem 1.5rem; }
-    .utility-content { flex-direction: column; justify-content: center; }
+    .utility-bar { border-radius: 0; padding: 0 1rem; }
     .desktop-cta { display: none !important; }
 }
 
