@@ -1013,47 +1013,18 @@ body {
         mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); 
     }
 
-    /* Mobile Sticky Navigation State */
-    .top-nav.is-sticky,
-    .top-nav.scrolled {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 0.85rem 1.5rem;
-        background: rgba(255, 255, 255, 0.96);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        border-bottom: 1px solid rgba(255, 155, 106, 0.2);
-        z-index: 990;
-        border-radius: 0;
-    }
-
-    /* Logo high-contrast styling against white glass navbar */
-    .top-nav.is-sticky .logo-text,
-    .top-nav.scrolled .logo-text {
-        color: #2D3748;
-    }
-
-    .top-nav.is-sticky .logo-icon,
-    .top-nav.scrolled .logo-icon {
-        fill: #FF9B6A !important;
-    }
-
-    .top-nav.is-sticky .logo-accent,
-    .top-nav.scrolled .logo-accent {
-        background: rgba(255, 145, 77, 0.15);
-        color: #FF914D;
-        border-color: rgba(255, 145, 77, 0.4);
-    }
-
-    /* Mobile Menu Button on Sticky Nav */
+    /* Mobile Sticky Menu Button (Floating Action Button Style) */
     .top-nav.is-sticky .mobile-menu-btn,
     .top-nav.scrolled .mobile-menu-btn {
-        background: rgba(255, 155, 106, 0.1);
+        position: fixed;
+        top: 1.5rem;
+        right: 1.5rem;
+        z-index: 990;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
         border: 1px solid rgba(255, 155, 106, 0.3);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 }
 

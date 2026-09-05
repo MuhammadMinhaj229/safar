@@ -179,7 +179,6 @@ drawerLinks.forEach(link => {
             if (isSticky) {
                 isSticky = false;
                 topNav.classList.remove('is-sticky', 'scrolled');
-                navPlaceholder.style.height = '';
             }
             return;
         }
@@ -189,13 +188,10 @@ drawerLinks.forEach(link => {
 
         if (shouldBeSticky && !isSticky) {
             isSticky = true;
-            // Lock placeholder height before pinning to prevent any layout shift
-            navPlaceholder.style.height = topNav.offsetHeight + 'px';
             topNav.classList.add('is-sticky', 'scrolled');
         } else if (!shouldBeSticky && isSticky) {
             isSticky = false;
             topNav.classList.remove('is-sticky', 'scrolled');
-            navPlaceholder.style.height = '';
         }
     }
 
@@ -208,10 +204,7 @@ drawerLinks.forEach(link => {
             if (isSticky) {
                 isSticky = false;
                 topNav.classList.remove('is-sticky', 'scrolled');
-                navPlaceholder.style.height = '';
             }
-        } else if (isSticky) {
-            navPlaceholder.style.height = topNav.offsetHeight + 'px';
         }
     });
 
