@@ -1298,7 +1298,7 @@ body {
     white-space: nowrap;
     padding: 0 1rem;
     opacity: 0;
-    animation: absoluteFade 21s infinite ease-in-out;
+    animation: absoluteFade 18s infinite ease-in-out;
 }
 
 .utility-wa-link {
@@ -1315,11 +1315,26 @@ body {
 }
 
 @keyframes absoluteFade {
-    0% { opacity: 0; }
-    2.38% { opacity: 1; }
-    14.28% { opacity: 1; }
-    16.67% { opacity: 0; }
-    100% { opacity: 0; }
+    0% { 
+        opacity: 0; 
+        transform: translateY(15px); 
+    }
+    2.77% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+    16.66% { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+    19.44% { 
+        opacity: 0; 
+        transform: translateY(-15px); 
+    }
+    100% { 
+        opacity: 0; 
+        transform: translateY(-15px); 
+    }
 }
 
 /* Accessibility: Pause animation for users who prefer reduced motion */
