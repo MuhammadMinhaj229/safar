@@ -1028,12 +1028,6 @@ body {
         border-bottom: 1px solid rgba(255, 155, 106, 0.2);
         z-index: 990;
         border-radius: 0;
-        animation: navSlideDown 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    }
-
-    @keyframes navSlideDown {
-        from { transform: translateY(-100%); }
-        to { transform: translateY(0); }
     }
 
     /* Logo high-contrast styling against white glass navbar */
@@ -1373,7 +1367,7 @@ body {
 .top-nav {
     position: relative; /* Restored to relative, JS will change it to fixed when scrolled */
     z-index: 900;
-    transition: background 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 @media (max-width: 1000px) {
     .utility-bar { border-radius: 0; padding: 0 1rem; }
