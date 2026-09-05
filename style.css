@@ -1276,26 +1276,17 @@ body {
 
 .utility-carousel {
     height: 40px;
-    overflow: hidden;
     position: relative;
     width: 100%;
     display: flex;
     justify-content: center;
-    -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, transparent 100%);
-    mask-image: linear-gradient(180deg, transparent 0%, rgba(0,0,0,1) 20%, rgba(0,0,0,1) 80%, transparent 100%);
-}
-
-.utility-track {
-    display: flex;
-    flex-direction: column;
-    animation: utilityRotate 21s infinite ease-in-out;
-}
-
-.utility-bar:hover .utility-track {
-    animation-play-state: paused;
 }
 
 .utility-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 40px;
     display: flex;
     align-items: center;
@@ -1306,6 +1297,8 @@ body {
     letter-spacing: 0.5px;
     white-space: nowrap;
     padding: 0 1rem;
+    opacity: 0;
+    animation: absoluteFade 21s infinite ease-in-out;
 }
 
 .utility-wa-link {
@@ -1321,103 +1314,19 @@ body {
     opacity: 1;
 }
 
-/* Rotational Animation: 6 distinct items, ~3s hold per item, 0.5s smooth fade & slide transition */
-@keyframes utilityRotate {
-    /* Item 1: "We do..." */
-    0%, 14.29% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    15.24% {
-        transform: translateY(-10px);
-        opacity: 0;
-    }
-    15.71% {
-        transform: translateY(-30px);
-        opacity: 0;
-    }
-    
-    /* Item 2: "We assist..." */
-    16.67%, 30.95% {
-        transform: translateY(-40px);
-        opacity: 1;
-    }
-    31.90% {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    32.38% {
-        transform: translateY(-70px);
-        opacity: 0;
-    }
-    
-    /* Item 3: "We provide..." */
-    33.33%, 47.62% {
-        transform: translateY(-80px);
-        opacity: 1;
-    }
-    48.57% {
-        transform: translateY(-90px);
-        opacity: 0;
-    }
-    49.05% {
-        transform: translateY(-110px);
-        opacity: 0;
-    }
-    
-    /* Item 4: "We are always here..." */
-    50.00%, 64.29% {
-        transform: translateY(-120px);
-        opacity: 1;
-    }
-    65.24% {
-        transform: translateY(-130px);
-        opacity: 0;
-    }
-    65.71% {
-        transform: translateY(-150px);
-        opacity: 0;
-    }
-    
-    /* Item 5: "We are always with you..." */
-    66.67%, 80.95% {
-        transform: translateY(-160px);
-        opacity: 1;
-    }
-    81.90% {
-        transform: translateY(-170px);
-        opacity: 0;
-    }
-    82.38% {
-        transform: translateY(-190px);
-        opacity: 0;
-    }
-    
-    /* Item 6: "WhatsApp Us: +91 7207071874" */
-    83.33%, 97.62% {
-        transform: translateY(-200px);
-        opacity: 1;
-    }
-    98.57% {
-        transform: translateY(-210px);
-        opacity: 0;
-    }
-    99.05% {
-        transform: translateY(-230px);
-        opacity: 0;
-    }
-    
-    /* Seamless Loop into Item 7 (Duplicate of Item 1) */
-    100.00% {
-        transform: translateY(-240px);
-        opacity: 1;
-    }
+@keyframes absoluteFade {
+    0% { opacity: 0; }
+    2.38% { opacity: 1; }
+    14.28% { opacity: 1; }
+    16.67% { opacity: 0; }
+    100% { opacity: 0; }
 }
 
 /* Accessibility: Pause animation for users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    .utility-track {
+    .utility-item {
         animation: none !important;
+        opacity: 1 !important;
     }
     html {
         scroll-behavior: auto !important;
