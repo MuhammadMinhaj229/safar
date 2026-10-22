@@ -8,7 +8,7 @@
 
 ---
 
-## 🌍 Service Offerings
+## Service Offerings
 
 - **Airport & Travel Assistance:** Guidance on travel requirements, luggage policies, and flight bookings.
 - **Accommodation & Housing:** Reliable flat and room search assistance in Gulf metropolitan centers.
@@ -17,7 +17,7 @@
 
 ---
 
-## 🚀 How to Run Locally
+## How to Run Locally
 
 ```bash
 # 1. Clone repository
@@ -33,7 +33,7 @@ Open [http://localhost:8000](http://localhost:8000).
 
 ---
 
-## 🌐 How to Deploy to Vercel
+## How to Deploy to Vercel
 
 1. Push to GitHub.
 2. Import `safar` into Vercel.
@@ -43,5 +43,5 @@ Open [http://localhost:8000](http://localhost:8000).
 
 ---
 
-## 👤 Author
+## Author
 Engineered by **Mohammed Minhaj Mahmood** ([@MuhammadMinhaj229](https://github.com/MuhammadMinhaj229)).
